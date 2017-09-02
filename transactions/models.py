@@ -5,6 +5,8 @@ They could just have 1 to 1's with other stuff.
 	But then you would have to check what other stuff they have.
 
 I kinda like this version better.
+	But maybe the implementation on the sub-classes should be minimal or empty, and just have another linked table for the details.
+	Seems correct..
 """
 
 from django.db import models
@@ -47,6 +49,4 @@ class GameTransaction(Transaction):
 
 	A spin that loses/wins the player some money..
 	"""
-	stake = models.DecimalField(max_digits=10, decimal_places=2)
-	won = models.BooleanField()
-	# Could record the odds, in case it's not fixed.
+	pass
