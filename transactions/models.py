@@ -1,3 +1,12 @@
+"""
+Maybe these don't need to be split up at all?
+
+They could just have 1 to 1's with other stuff.
+	But then you would have to check what other stuff they have.
+
+I kinda like this version better.
+"""
+
 from django.db import models
 
 from wallets.models import Wallet
