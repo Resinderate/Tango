@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- Ico -->
+  <link rel="shortcut icon" type="image/png" href="/static/ico/favicon.ico"/>
+  <!-- Bootstrap -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Tango -->
+  <link href="/static/css/tango.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">TANGO</a>
+      </div>
+      <div class="navbar-header navbar-right">
+        {% if not user.is_anonymous %}
+          <p class="navbar-text text-capitalize">
+            {{ user.username }}
+          </p>
+          <a class="btn btn-danger navbar-btn" href="{% url 'logout' %}" role="button">Logout</a>
+        {% else %}
+          <a class="btn btn-primary navbar-btn" href="{% url 'login' %}" role="button">Login</a>
+          <a class="btn btn-primary navbar-btn" href="{% url 'logout' %}" role="button">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+  {% block content %}
+  {% endblock %}
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script type="text/javascript">CSRF_TOKEN = "{{ csrf_token }}";</script>
+  <!-- Tango -->
+  <script src="/static/js/tango.js"></script>
+</body>
+</html>

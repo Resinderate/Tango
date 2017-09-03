@@ -1,5 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-def landing(request):
-	return HttpResponse("Hello Landing! Logged in?:{}".format(not request.user.is_anonymous))
+
+class LandingView(TemplateView):
+    template_name = "landing.html"

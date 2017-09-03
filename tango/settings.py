@@ -123,5 +123,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Where to go after you are logged in.
+# Where the static assets live.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# Where to go when logging in/out.
 LOGIN_REDIRECT_URL = 'game'
+LOGOUT_REDIRECT_URL = 'landing'

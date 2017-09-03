@@ -1,5 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-def game(request):
-	return HttpResponse("Hello Games Logged in?:{}".format(not request.user.is_anonymous))
+
+class GameView(TemplateView):
+    template_name = "game.html"
